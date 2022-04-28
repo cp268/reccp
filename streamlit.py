@@ -37,10 +37,10 @@ def main():
     )
     st.text("")
 
-    session_state = st.session_state.get(
-        model_computed=False,
-        execute_recsys=False,
-    )
+    #session_state = st.session_state.get(
+        #model_computed=False,
+        #execute_recsys=False,
+    #)
 
     ingredients = st.text_input("Enter ingredients you would like to cook with")
     st.session_state.execute_recsys = st.button("Give me recommendations!")
