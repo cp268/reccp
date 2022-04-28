@@ -4,7 +4,7 @@
 * Scraped over 120,000 recipes from Food Network, All Recipes, and Epicureus.
 * Parsed recipe ingredients and created word embeddings using Word2Vec and TF-IDF.
 * Created a recipe recommendation system using cosine similarity to measure Euclidean distance between the word embeddings of recipe ingredients.
-* Used Streamlit Cloud to deploy my app: https://share.streamlit.io/cp268/reccp/main/streamlit.py
+* Used Streamlit Cloud to deploy my app: https://share.streamlit.io/cp268/reccp/main/streamlit.py (ignore the error message and type the ingredients)
 
 ## Motivation
 Cooking is a hobby for some and a major problem for others. However, you can always use a helping hand for cooking. Being a student, it is always a difficult decision to decide what to eat for lunch or dinner. Sometimes faced with limited items in the kitchen, it is always a challenge to decide what to cook for a meal. This inspired me to create a system that can recommend recipes based on ingredient suggestions.
