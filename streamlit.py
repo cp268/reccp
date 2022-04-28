@@ -24,23 +24,20 @@ def make_clickable(name, link):
 
 
 def main():
-    image = Image.open("input/wordcloud.png").resize((680, 150))
+    image = Image.open("input/image.jpg").resize((680, 150))
     st.image(image)
-    st.markdown("# *What's Cooking? :cooking:*")
+    st.markdown("# *Need a recipe for your ingredients?*")
 
     st.markdown(
-        "An ML powered app by Jack Leitch <a href='https://github.com/jackmleitch/Whatscooking-' > <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/600px-Octicons-mark-github.svg.png' width='20' height='20' > </a> ",
+        "Use this ML powered app for a recipe recommendation! <a href='https://github.com/cp268/reccp' > <img src='https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/600px-Octicons-mark-github.svg.png' width='20' height='20' > </a> ",
         unsafe_allow_html=True,
     )
-    st.markdown(
-        "## Given a list of ingredients, what different recipes can I can make? :tomato: "
-    )
-    st.markdown(
-        "For example, what recipes can you make with the food in your apartment? :house: My ML based model will look through over 4500 recipes to find matches for you... :mag: Try it out for yourself below! :arrow_down:"
-    )
 
+    st.markdown(
+        "Our app is built from a collection of over 120,000 recipes! Type in your list of ingredients below and get the top recipe recommendations with instructions!"
+    )
     st.text("")
-
+    
     session_state = SessionState.get(
         recipe_df="",
         recipes="",
