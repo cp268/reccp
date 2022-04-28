@@ -47,9 +47,8 @@ def main():
 
     if st.session_state.execute_recsys:
 
-        col1, col2, col3 = st.beta_columns([1, 6, 1])
+        col1, col2, col3 = st.columns([1, 6, 1])
         recipe = rec_sys.RecSys(ingredients)
-        gif_runner.empty()
         st.session_state.recipe_df_clean = recipe.copy()
         # link is the column with hyperlinks
         recipe["url"] = recipe.apply(
