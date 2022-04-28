@@ -38,8 +38,8 @@ def main():
     st.text("")
 
     st.session_state.get(
-        model_computed=False,
-        execute_recsys=False,
+        model_computed=True,
+        execute_recsys=True,
     )
 
     ingredients = st.text_input("Enter ingredients you would like to cook with")
