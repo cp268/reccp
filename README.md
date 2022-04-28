@@ -20,7 +20,7 @@ For each recipe, the following was obtained:
 * URL
 * Rating
 
-##Repo organization
+## Repo organization
 ```
 ├── README.md               <- description of project and how to set up and run it
 ├── requirements.txt        <- requirements file to document dependencies
