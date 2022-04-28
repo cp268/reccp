@@ -37,13 +37,10 @@ def main():
     )
     st.text("")
 
-    #session_state = SessionState.get(
-        #recipe_df="",
-        #recipes="",
-        #model_computed=False,
-        #execute_recsys=False,
-        #recipe_df_clean="",
-    #)
+    session_state = SessionState.get(
+        model_computed=False,
+        execute_recsys=False,
+    )
 
     ingredients = st.text_input("Enter ingredients you would like to cook with")
     st.session_state.execute_recsys = st.button("Give me recommendations!")
@@ -69,7 +66,7 @@ def main():
     if st.session_state.model_computed:
         # st.write("Either pick a particular recipe or see the top 5 recommendations.")
         recipe_all_box = st.selectbox(
-            "Either see the top 5 recommendations or pick a particular recipe ya fancy",
+            "Either see the top 5 recommendations or see the top selection",
             ["Show me them all!", "Select a single recipe"],
         )
         if recipe_all_box == "Show me them all!":
@@ -86,24 +83,6 @@ def main():
             st.write(f"URL: {selection_details.url.values[0]}")
             st.write(f"Score: {selection_details.score.values[0]}")
 
-    # sidebar stuff
-    with st.sidebar.beta_expander("How it works?", expanded=True):
-        st.markdown("## How it works? :thought_balloon:")
-        st.write(
-            "For an in depth overview of the ML methods used and how I created this app, three blog posts are below."
-        )
-        blog1 = "https://jackmleitch.medium.com/using-beautifulsoup-to-help-make-beautiful-soups-d2670a1d1d52"
-        blog2 = "https://towardsdatascience.com/building-a-recipe-recommendation-api-using-scikit-learn-nltk-docker-flask-and-heroku-bfc6c4bdd2d4"
-        blog3 = "https://towardsdatascience.com/building-a-recipe-recommendation-system-297c229dda7b"
-        st.markdown(
-            f"1. [Web Scraping Cooking Data With Beautiful Soup]({blog1})"
-        )
-        st.markdown(
-            f"2. [Building a Recipe Recommendation API using Scikit-Learn, NLTK, Docker, Flask, and Heroku]({blog2})"
-        )
-        st.markdown(
-            f"3. [Building a Recipe Recommendation System Using Word2Vec, Scikit-Learn, and Streamlit]({blog3})"
-        )
 
 
 if __name__ == "__main__":
