@@ -37,7 +37,7 @@ def main():
     )
     st.text("")
 
-    session_state = SessionState.get(
+    session_state = st.session_state.get(
         model_computed=False,
         execute_recsys=False,
     )
