@@ -60,25 +60,25 @@ def main():
         st.session_state.model_computed = True
         st.session_state.execute_recsys = True
 
-    #if st.session_state.model_computed=True:
-        # st.write("Either pick a particular recipe or see the top 5 recommendations.")
-        #recipe_all_box = st.selectbox(
-            #"Either see the top 5 recommendations or see the top selection",
-            #["Show me them all!", "Select a single recipe"],
-        #)
-        #if recipe_all_box == "Show me them all!":
-            #st.write(st.session_state.recipe_display, unsafe_allow_html=True)
-        #else:
-            #selection = st.selectbox(
-                #"Select a delicious recipe", options=st.session_state.recipes
-            #)
-            #selection_details = st.session_state.recipe_df_clean.loc[
-                #st.session_state.recipe_df_clean.recipe == selection
-            #]
-            #st.write(f"Recipe: {selection_details.recipe.values[0]}")
-            #st.write(f"Ingredients: {selection_details.ingredients.values[0]}")
-            #st.write(f"URL: {selection_details.url.values[0]}")
-            #st.write(f"Score: {selection_details.score.values[0]}")
+    if st.session_state.model_computed:
+         st.write("Either pick a particular recipe or see the top 5 recommendations.")
+        recipe_all_box = st.selectbox(
+            "Either see the top 5 recommendations or see the top selection",
+            ["Show me them all!", "Select a single recipe"],
+        )
+        if recipe_all_box == "Show me them all!":
+            st.write(st.session_state.recipe_display, unsafe_allow_html=True)
+        else:
+            selection = st.selectbox(
+                "Select a delicious recipe", options=st.session_state.recipes
+            )
+            selection_details = st.session_state.recipe_df_clean.loc[
+                st.session_state.recipe_df_clean.recipe == selection
+            ]
+            st.write(f"Recipe: {selection_details.recipe.values[0]}")
+            st.write(f"Ingredients: {selection_details.ingredients.values[0]}")
+            st.write(f"URL: {selection_details.url.values[0]}")
+            st.write(f"Score: {selection_details.score.values[0]}")
 
 
 
