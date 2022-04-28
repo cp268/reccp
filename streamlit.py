@@ -46,7 +46,7 @@ def main():
     #)
 
     ingredients = st.text_input("Enter ingredients you would like to cook with")
-    session_state.execute_recsys = st.button("Give me recommendations!")
+    st.session_state.execute_recsys = st.button("Give me recommendations!")
 
     if session_state.execute_recsys:
 
