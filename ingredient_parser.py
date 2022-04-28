@@ -1,12 +1,14 @@
+# /Users/Jack/Documents/Projects/Whatscooking-/src
+
 import pandas as pd 
+import nltk
 import string
 import ast
 import re
 import unidecode
-import nltk
-nltk.download('wordnet')
-nltk.download('omw-1.4')
+# nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
+from nltk.corpus import wordnet
 from collections import Counter
 import config 
 
@@ -71,8 +73,12 @@ def ingredient_parser(ingreds):
 if __name__ == "__main__":
     recipe_df = pd.read_csv(config.RECIPES_PATH)
     recipe_df['ingredients_parsed'] = recipe_df['ingredients'].apply(lambda x: ingredient_parser(x))
-    df = recipe_df[['title', 'ingredients_parsed', 'ingredients', 'instructions']]
-    df = recipe_df.dropna()      
+    df = recipe_df[['recipe_name', 'ingredients_parsed', 'ingredients', 'recipe_urls']]
+    df = recipe_df.dropna()
+
+    # remove - Allrecipes.com from end of every recipe title 
+    m = df.recipe_name.str.endswith('Recipe - Allrecipes.com')
+    df['recipe_name'].loc[m] = df.recipe_name.loc[m].str[:-23]        
     df.to_csv(config.PARSED_PATH, index=False)
 
     # vocabulary = nltk.FreqDist()
