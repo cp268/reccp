@@ -48,38 +48,38 @@ def main():
     ingredients = st.text_input("Enter ingredients you would like to cook with")
     st.session_state.execute_recsys = st.button("Give me recommendations!")
 
-    if session_state.execute_recsys:
+    if st.session_state.execute_recsys:
 
         col1, col2, col3 = st.beta_columns([1, 6, 1])
         with col2:
             gif_runner = st.image("input/cooking_gif.gif")
         recipe = rec_sys.RecSys(ingredients)
         gif_runner.empty()
-        session_state.recipe_df_clean = recipe.copy()
+        st.session_state.recipe_df_clean = recipe.copy()
         # link is the column with hyperlinks
         recipe["url"] = recipe.apply(
             lambda row: make_clickable(row["recipe"], row["url"]), axis=1
         )
         recipe_display = recipe[["recipe", "url", "ingredients"]]
-        session_state.recipe_display = recipe_display.to_html(escape=False)
-        session_state.recipes = recipe.recipe.values.tolist()
-        session_state.model_computed = True
-        session_state.execute_recsys = False
+        st.session_state.recipe_display = recipe_display.to_html(escape=False)
+        st.session_state.recipes = recipe.recipe.values.tolist()
+        st.session_state.model_computed = True
+        st.session_state.execute_recsys = False
 
-    if session_state.model_computed:
+    if st.session_state.model_computed:
         # st.write("Either pick a particular recipe or see the top 5 recommendations.")
         recipe_all_box = st.selectbox(
             "Either see the top 5 recommendations or pick a particular recipe ya fancy",
             ["Show me them all!", "Select a single recipe"],
         )
         if recipe_all_box == "Show me them all!":
-            st.write(session_state.recipe_display, unsafe_allow_html=True)
+            st.write(st.session_state.recipe_display, unsafe_allow_html=True)
         else:
             selection = st.selectbox(
-                "Select a delicious recipe", options=session_state.recipes
+                "Select a delicious recipe", options=st.session_state.recipes
             )
-            selection_details = session_state.recipe_df_clean.loc[
-                session_state.recipe_df_clean.recipe == selection
+            selection_details = st.session_state.recipe_df_clean.loc[
+                st.session_state.recipe_df_clean.recipe == selection
             ]
             st.write(f"Recipe: {selection_details.recipe.values[0]}")
             st.write(f"Ingredients: {selection_details.ingredients.values[0]}")
