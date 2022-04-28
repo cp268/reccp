@@ -37,14 +37,14 @@ def main():
         "Our app is built from a collection of over 120,000 recipes! Type in your list of ingredients below and get the top recipe recommendations with instructions!"
     )
     st.text("")
-    
-    session_state = SessionState.get(
-        recipe_df="",
-        recipes="",
-        model_computed=False,
-        execute_recsys=False,
-        recipe_df_clean="",
-    )
+
+    #session_state = SessionState.get(
+        #recipe_df="",
+        #recipes="",
+        #model_computed=False,
+        #execute_recsys=False,
+        #recipe_df_clean="",
+    #)
 
     ingredients = st.text_input("Enter ingredients you would like to cook with")
     session_state.execute_recsys = st.button("Give me recommendations!")
