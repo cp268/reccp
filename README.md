@@ -6,13 +6,11 @@
 * Created a recipe recommendation system using cosine similarity to measure Euclidean distance between the word embeddings of recipe ingredients.
 * Used Streamlit Cloud to deploy my app: https://share.streamlit.io/cp268/reccp/main/streamlit.py (ignore the error message and type the ingredients)
 
-## Motivation
-Cooking is a hobby for some and a major problem for others. However, you can always use a helping hand for cooking. Being a student, it is always a difficult decision to decide what to eat for lunch or dinner. Sometimes faced with limited items in the kitchen, it is always a challenge to decide what to cook for a meal. This inspired me to create a system that can recommend recipes based on ingredient suggestions.
-
 ## Code 
 **Python Version:** 3.7  
 **Packages:** pandas, numpy, sklearn, gensim, matplotlib, seaborn, beautifulsoup, flask, streamlit, json, pickle  
 **For Web Framework Requirements:**  ```pip install -r requirements.txt```  
+
 
 ## Web Scraping
 For each recipe, the following was obtained:
@@ -21,6 +19,24 @@ For each recipe, the following was obtained:
 * Ingredients
 * URL
 * Rating
+
+#Repo organization
+├── README.md               <- description of project and how to set up and run it
+├── requirements.txt        <- requirements file to document dependencies
+├── recsys.py               <- app to run project / user interface
+├── scripts                 <- directory for pipeline scripts or utility scripts
+    ├── ingredient_parser.py<- script to parse ingredients
+    ├── tfidf_encoder.py    <- script to perform embedding aggregation
+    ├── word2vec_rec.py     <- script to perform word embeddings
+├── models                  <- directory for pkl files for trained models
+├── data                    <- directory for project data
+    ├── raw                 <- directory for raw data or script to download
+    ├── processed           <- directory to store processed data
+    ├── outputs             <- directory to store any output data
+├── notebooks               <- directory to store any exploration notebooks used
+    ├──recipe_compile.ipynb <- compiles recipe name, url, and ingredients from the three sources of recipe 
+├── streamlit.py            <- launch streamlit app on streamlit cloud
+├── .gitignore              <- git ignore file
 
 ## Data Cleaning
 After scraping the data, we needed to parse the ingredients to remove redundant information that would not help distinguish recipes. The **ingredient parser** does the following:
