@@ -58,7 +58,7 @@ def main():
         st.session_state.recipe_display = recipe_display.to_html(escape=False)
         st.session_state.recipes = recipe.recipe.values.tolist()
         st.session_state.model_computed = True
-        st.session_state.execute_recsys = False
+        st.session_state.execute_recsys = True
 
     #if st.session_state.model_computed=True:
         # st.write("Either pick a particular recipe or see the top 5 recommendations.")
