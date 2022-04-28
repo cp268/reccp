@@ -63,7 +63,7 @@ def main():
         st.session_state.model_computed = True
         st.session_state.execute_recsys = False
 
-    if st.session_state.model_computed:
+    if st.session_state.model_computed=True:
         # st.write("Either pick a particular recipe or see the top 5 recommendations.")
         recipe_all_box = st.selectbox(
             "Either see the top 5 recommendations or see the top selection",
