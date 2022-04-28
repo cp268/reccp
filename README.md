@@ -20,7 +20,8 @@ For each recipe, the following was obtained:
 * URL
 * Rating
 
-#Repo organization
+##Repo organization
+```
 ├── README.md               <- description of project and how to set up and run it
 ├── requirements.txt        <- requirements file to document dependencies
 ├── recsys.py               <- app to run project / user interface
@@ -37,6 +38,7 @@ For each recipe, the following was obtained:
     ├──recipe_compile.ipynb <- compiles recipe name, url, and ingredients from the three sources of recipe 
 ├── streamlit.py            <- launch streamlit app on streamlit cloud
 ├── .gitignore              <- git ignore file
+```
 
 ## Data Cleaning
 After scraping the data, we needed to parse the ingredients to remove redundant information that would not help distinguish recipes. The **ingredient parser** does the following:
